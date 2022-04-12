@@ -25,17 +25,21 @@
                 width: 425px;
                 height: 600px;
                 position: relative;
+                overflow: hidden;
             }
 
             .greeting-image {
+                z-index: 11;
                 width: 100%;
                 height: 100%;
+                position: relative;
             }
 
             .user-image {
-                position: absolute;
                 width: 5em;
-                bottom: 13%;
+                margin-top: -165px;
+                position: relative;
+                margin-bottom: 98px;
             }
 
             .user-name {
@@ -44,6 +48,7 @@
                 margin: 0px;
                 font-size: 18px;
                 text-transform: capitalize;
+                z-index: 12;
             }
 
             .button-container {
@@ -87,11 +92,14 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="js/html2canvas.min.js"></script>
+        <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
+
     </head>
 
     <body>
         <div class="page-container">
             <div class="main-content" id="main-content">
+
                 <img class="greeting-image" src="images/greetings-image.png" alt="Greeting image">
                 <img class="user-image" src="images/user-placeholder.png" />
                 <p class="user-name mt-2"></p>
@@ -112,9 +120,9 @@
             </div>
         </div>
         <script>
-            $(".user-image").click(function () {
-                $("input[id='my_file']").click();
-            });
+            // $(".user-image").click(function () {
+            //     $("input[id='my_file']").click();
+            // });
             $('input[type=file]').change(function () {
                 console.log($(this));
             });
@@ -130,10 +138,19 @@
                     reader.readAsDataURL(input.files[0]);
                 }
             }
+            // just grab a DOM element
+            var elementImage = document.querySelector('.user-image')
+
+            // And pass it to panzoom
+            panzoom(elementImage, {
+                zoomSpeed: 0.035,
+                transformOrigin: { x: 0.5, y: 0.5 }
+            });
         </script>
         <script>
             $(document).ready(function () {
                 var getCanvas;
+
                 function callCanvas() {
                     html2canvas($("#main-content")[0]).then((canvas) => {
                         console.log("done ... ");
