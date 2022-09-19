@@ -39,8 +39,8 @@
             .user-image {
                 position: absolute;
                 width: 5em;
-                bottom: 16%;
-                left: 10%;
+                bottom: 18%;
+                left: 12%;
                 z-index: -1;
             }
 
@@ -104,24 +104,25 @@
 
     <body>
         <div class="page-container row">
-            <div class="main-content col-4" id="main-content">
+            <div class="main-content col-3" id="main-content">
 
                 <img class="greeting-image" src="images/WHD - Poster.png" alt="Greeting image">
                 <img class="user-image" src="images/user-placeholder.png" />
                 <p class="user-name mt-2"></p>
             </div>
-            <div class="button-container  col-4">
+            <div class="button-container  col-3">
                 <label for="my_file">Choose Image :</label>
                 <div class="input-group mb-3">
                     <input type="file" id="my_file" onchange="readURL(this);" class="form-control">
                 </div>
                 <label for="my_name">Enter Full Name :</label>
                 <input type="text" id="my_name" placeholder="First Name Last Name" onchange="readURL(this);" class="form-control">
+                <button type="button" class="btn btn-primary mt-2" onclick="addPanZoom()">Pan / Zoom Image</button>
                 <button type="button" class="btn btn-primary mt-2" id="PreviewImage">Preview</button>
                 <a href="#" class="btn btn-primary download-pdf-button mt-2" id="downloadimage">Download Image</a>
 
             </div>
-            <div class="preview-container  col-4">
+            <div class="preview-container  col-3">
                 <h2>Preview</h2>
             </div>
         </div>
@@ -144,14 +145,18 @@
                     reader.readAsDataURL(input.files[0]);
                 }
             }
-            // just grab a DOM element
-            var elementImage = document.querySelector('.user-image')
 
-            // And pass it to panzoom
-            panzoom(elementImage, {
-                zoomSpeed: 0.035,
-                transformOrigin: { x: 0.5, y: 0.5 }
-            });
+            function addPanZoom() {
+                // just grab a DOM element
+                var elementImage = document.querySelector('.user-image')
+
+                // And pass it to panzoom
+                panzoom(elementImage, {
+                    zoomSpeed: 0.035,
+                    transformOrigin: { x: 0.5, y: 0.5 }
+                });
+            }
+
         </script>
         <script>
             $(document).ready(function () {
