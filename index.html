@@ -73,14 +73,23 @@
                     flex-direction: column;
                     align-items: center;
                     justify-content: space-between;
+                    width: 80%;
                 }
 
                 .user-name {
                     position: absolute;
-                    bottom: 3%;
+                    bottom: 23%;
                     margin: 0px;
-                    font-size: 12px;
+                    font-size: 20px;
                     text-transform: capitalize;
+                }
+
+                .preview-container {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 30px;
                 }
             }
         </style>
@@ -94,14 +103,14 @@
     </head>
 
     <body>
-        <div class="page-container">
-            <div class="main-content" id="main-content">
+        <div class="page-container row">
+            <div class="main-content col-4" id="main-content">
 
                 <img class="greeting-image" src="images/WHD - Poster.png" alt="Greeting image">
                 <img class="user-image" src="images/user-placeholder.png" />
                 <p class="user-name mt-2"></p>
             </div>
-            <div class="button-container">
+            <div class="button-container  col-4">
                 <label for="my_file">Choose Image :</label>
                 <div class="input-group mb-3">
                     <input type="file" id="my_file" onchange="readURL(this);" class="form-control">
@@ -112,7 +121,7 @@
                 <a href="#" class="btn btn-primary download-pdf-button mt-2" id="downloadimage">Download Image</a>
 
             </div>
-            <div class="preview-container">
+            <div class="preview-container  col-4">
                 <h2>Preview</h2>
             </div>
         </div>
