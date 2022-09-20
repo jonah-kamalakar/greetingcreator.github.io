@@ -16,7 +16,6 @@
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-around;
-                height: 100vh;
 
             }
 
@@ -48,10 +47,14 @@
                 font-family: 'Alex Brush', cursive;
                 position: absolute;
                 bottom: 22%;
-                right: 15%;
+                right: 11%;
                 margin: 0px;
                 font-size: 24px;
                 text-transform: capitalize;
+                width: 190px;
+                white-space: nowrap;
+                text-overflow: clip;
+                overflow: hidden;
             }
 
             .button-container {
@@ -78,10 +81,12 @@
 
                 .user-name {
                     position: absolute;
-                    bottom: 23%;
+                    bottom: 22%;
                     margin: 0px;
                     font-size: 20px;
                     text-transform: capitalize;
+                    right: 15%;
+                    width: 160px;
                 }
 
                 .preview-container {
@@ -115,7 +120,7 @@
                 <div class="input-group mb-3">
                     <input type="file" id="my_file" onchange="readURL(this);" class="form-control">
                 </div>
-                <button type="button" class="btn btn-primary mt-2" onclick="addPanZoom()">Pan / Zoom Image</button>
+                <button type="button" class="btn btn-primary mt-2" onclick="addPanZoom()">Adjust Image</button>
                 <label for="my_name">Enter Full Name :</label>
                 <input type="text" id="my_name" placeholder="First Name Last Name" onchange="readURL(this);" class="form-control">
 
