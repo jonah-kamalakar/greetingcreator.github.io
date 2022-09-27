@@ -181,7 +181,7 @@
                 $("#downloadimage").on('click', function () {
                     var imgageData = getCanvas.toDataURL("image/jpg");
                     // Now browser starts downloading it instead of just showing it
-                    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+                    var newData = imgageData.replace(/^data:image\/jpg/, "data:application/octet-stream");
                     $("#downloadimage").attr("download", "your_greeting.jpg").attr("href", newData);
                 });
             });
