@@ -179,10 +179,10 @@
                     callCanvas()
                 });
                 $("#downloadimage").on('click', function () {
-                    var imgageData = getCanvas.toDataURL("image/png");
+                    var imgageData = getCanvas.toDataURL("image/jpg");
                     // Now browser starts downloading it instead of just showing it
                     var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-                    $("#downloadimage").attr("download", "your_pic_name.png").attr("href", newData);
+                    $("#downloadimage").attr("download", "your_greeting.jpg").attr("href", newData);
                 });
             });
         </script>
